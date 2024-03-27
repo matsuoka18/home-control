@@ -92,3 +92,14 @@ p{
     padding: 0;
     font-size:20px;
 }
+.box{
+    position:absolute;
+    left:-7.5vw;
+    top:30%;
+    width:40vh;
+    text-align:center;
+    padding:5vw;
+    margin:0;
+    transform: rotate(0.75turn);
+    border:1px solid black;
+}
