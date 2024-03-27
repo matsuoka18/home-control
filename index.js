@@ -24,7 +24,7 @@ fetch(url,{
     var status = resJson[0];
     mode = resJson[1];
     try{
-        var message = resJson[3];
+        var message = resJson[2];
         if(message == undefined){
             message = "メッセージはありません";
         }
