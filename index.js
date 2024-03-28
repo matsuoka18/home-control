@@ -84,5 +84,15 @@ function check(){
         data_road();
     },3600000)
     }
+    var data = [{
+      "branch":"time"
+    }];
+    var params = {
+        "method":"post",
+        "mode":"no-cors",
+        "Content-Type":"application/json",
+        "body":JSON.stringify(data)
+        }
+    fetch(url,params);
 }
 //1800000
