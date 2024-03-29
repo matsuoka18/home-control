@@ -54,35 +54,43 @@ fetch(url,{
      alert("予期せぬエラーが発生しました")
      document.getElementById("text").innerHTML = "予期せぬエラーが発生しました";
     }
-})
- //時間変更処理
+     //時間変更処理
  var time = new Date();
  var hour = time.getHours();
  var minute = time.getMinutes();
  time = hour+":"+minute;
  document.getElementById("time2").innerHTML = time;
  check();
+})
+
 }
+time_data = '';
 function check(){
     console.log("mode:"+mode)
     if(mode == "home"){
         control = setInterval(()=>{
             console.log("check2")
-            data_road();
+            clearInterval(branch_t);
+            location.href = "https://matsuoka18.github.io/home-control/index.html"
         },600000)
+        time_data = 600000;
       //600000
     }else if(mode == "leave"){
       
       control = setInterval(()=>{
         console.log("check2")
-        data_road();
+        clearInterval(branch_t);
+        location.href = "https://matsuoka18.github.io/home-control/index.html"
     },1800000)
+    time_data = 1800000;
     }else{
       
       control = setInterval(()=>{
         console.log("check2")
-        data_road();
+        clearInterval(branch_t);
+        location.href = "https://matsuoka18.github.io/home-control/index.html"
     },3600000)
+    time_data = 3600000;
     }
     var data = [{
       "branch":"time"
@@ -94,5 +102,15 @@ function check(){
         "body":JSON.stringify(data)
         }
     fetch(url,params);
+    count();
+}
+branch_t = '';
+function count(){
+    time_data = time_data/1000;
+    branch_t = setInterval(count2,1000);
+}
+function count2(){
+    time_data--;
+    document.getElementById("time3").innerHTML = time_data+"sec";
 }
 //1800000
