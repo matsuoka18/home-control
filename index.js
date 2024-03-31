@@ -1,5 +1,6 @@
 url = "https://script.google.com/macros/s/AKfycbxJ7duZLgYz0kI2pq2Xu6iIGNPFHV9e_pSqd1fanrHJaa83pKeowQh9BxpZ9mQ7CI4/exec";
 mode = "";
+battery_data = "";
 function data_road(){
     document.getElementById("all1").style.opacity = 1;
     document.getElementById("all1").style.display = "block";
@@ -23,8 +24,11 @@ fetch(url,{
     console.log(JSON.stringify(resJson));
     var status = resJson[0];
     mode = resJson[1];
+    //バッテリー残量表示処理　
+    battery_data = resJson[2];
+
     try{
-        var message = resJson[2];
+        var message = resJson[3];
         if(message == undefined){
             message = "メッセージはありません";
         }
@@ -36,6 +40,7 @@ fetch(url,{
     document.getElementById("text").innerHTML = message;
     console.log("status:"+status);
     console.log("mode:"+mode);
+    console.log("battery:"+battery);
     
     //onの場合
     if(status == "on"){
@@ -61,7 +66,31 @@ fetch(url,{
  time = hour+":"+minute;
  document.getElementById("time2").innerHTML = time;
  check();
+ battery_check();
+ tatch_animation();
 })
+
+}
+function battery_check(){
+    battery_data = battery_data*100+"vw";
+    $("#battery").animate({
+        "width":battery_data
+    },1000)
+    //document.getElementById("battery").style.width = battery;
+    
+}
+battery_interval = '';
+
+function tatch_animation(){
+    battery_interval = setInterval(()=>{
+        
+        $("#box").animate({
+            "opacity":1
+        },2000)
+        $("#box").animate({
+            "opacity":0
+        },1000)
+    },3100)
 
 }
 time_data = '';
