@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">body{margin:0; padding:0;}</style>
+	<script src="face-api.js"></script>
+	<!--script src="script.js"></script-->
+</head>
+<body onload="start()">
+    <!--video id="camera" autoplay onloadedmetadata="onPlay()"></video-->
+	<video muted autoplay playsinline id="hoge" class="huga"></video>
+	<input  id="camera" type="file" capture="user" accept="video/*">
+	<button onclick="start()">start</button>
+	<button onclick="start3()">shoot</button>
+	<canvas id="myCanvas" wcrossorigin="anonymous">
+		<canvas id="myCanvas1" wcrossorigin="anonymous">
+<style>
+	video{
+		width:50vw;
+		height:auto;
+	}
+canvas{
+	width:50vw;
+	height:auto;
+}
+</style>
+<script src="script.js"></script>
+</body>
+</html>

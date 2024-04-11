@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face-Check</title>
+</head>
+<body>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            width:100vw;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+       canvas{
+        position:absolute;
+        top:0;
+        left:0;
+
+       }
+    </style>
+    <input type="file" id="up_pic">
+    <canvas id="canvas"></canvas>
+    <script src="face-api.min.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
