@@ -1,4 +1,5 @@
 url = "https://script.google.com/macros/s/AKfycbxJ7duZLgYz0kI2pq2Xu6iIGNPFHV9e_pSqd1fanrHJaa83pKeowQh9BxpZ9mQ7CI4/exec";
+url2 = "https://matsuoka18.github.io/home-control/index.html";
 mode = "";
 battery_data = "";
 function data_road(){
@@ -100,7 +101,7 @@ function check(){
         control = setInterval(()=>{
             console.log("check2")
             clearInterval(branch_t);
-            location.href = "https://matsuoka18.github.io/home-control/index.html"
+            location.href = url2
         },600000)
         time_data = 600000;
       //600000
@@ -109,7 +110,7 @@ function check(){
       control = setInterval(()=>{
         console.log("check2")
         clearInterval(branch_t);
-        location.href = "https://matsuoka18.github.io/home-control/index.html"
+        location.href = url2
     },1800000)
     time_data = 1800000;
     }else{
@@ -117,7 +118,7 @@ function check(){
       control = setInterval(()=>{
         console.log("check2")
         clearInterval(branch_t);
-        location.href = "https://matsuoka18.github.io/home-control/index.html"
+        location.href = url2
     },3600000)
     time_data = 3600000;
     }
