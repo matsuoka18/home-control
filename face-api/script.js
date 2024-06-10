@@ -18,9 +18,9 @@ async function loadModels(){
 		faceapi.loadTinyFaceDetectorModel(MODEL_URL)
 	])
 	//.then(detectAllFaces);
-	.then(()=>{
+	/*.then(()=>{
 		detectFace()
-	})
+	})*/
 }
 
 async function detectFace(){
@@ -109,6 +109,7 @@ navigator.mediaDevices.getUserMedia(setting)
 
 }
 function start2(video){
+
 	var height2 = document.getElementById("hoge").getBoundingClientRect().height;
 	var canvas2 = document.getElementById("myCanvas");
 	
@@ -127,8 +128,10 @@ stx.drawImage(
 	1700,
 	1000
 )
-//loadModels();
-},1000)
+
+FILE_URL = canvas2.toDataURL('image/png');
+detectFace
+},3000)
 }
 
 function start3(){
