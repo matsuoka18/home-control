@@ -1,11 +1,14 @@
 url = "https://script.google.com/macros/s/AKfycbxJ7duZLgYz0kI2pq2Xu6iIGNPFHV9e_pSqd1fanrHJaa83pKeowQh9BxpZ9mQ7CI4/exec";
+url2 = "https://matsuoka18.github.io/home-control/index.html";
 mode = "";
 battery_data = "";
+ani_branch = "OK";
 function data_road(){
     document.getElementById("all1").style.opacity = 1;
     document.getElementById("all1").style.display = "block";
     document.getElementById("all2").style.opacity = 0;
     document.getElementById("all2").style.display = "none";
+    ani();
 fetch(url,{
     "method":"get",
     "mode":"cors"
@@ -17,6 +20,7 @@ fetch(url,{
 })
 .then(resJson =>{
     //画面切り替え
+    ani_branch="FIN";
     document.getElementById("all1").style.opacity = 0;
     document.getElementById("all1").style.display = "none";
     document.getElementById("all2").style.opacity = 1;
@@ -100,7 +104,7 @@ function check(){
         control = setInterval(()=>{
             console.log("check2")
             clearInterval(branch_t);
-            location.href = "https://matsuoka18.github.io/home-control/index.html"
+            location.href = url2
         },600000)
         time_data = 600000;
       //600000
@@ -109,7 +113,7 @@ function check(){
       control = setInterval(()=>{
         console.log("check2")
         clearInterval(branch_t);
-        location.href = "https://matsuoka18.github.io/home-control/index.html"
+        location.href = url2
     },1800000)
     time_data = 1800000;
     }else{
@@ -117,7 +121,7 @@ function check(){
       control = setInterval(()=>{
         console.log("check2")
         clearInterval(branch_t);
-        location.href = "https://matsuoka18.github.io/home-control/index.html"
+        location.href = url2
     },3600000)
     time_data = 3600000;
     }
@@ -143,3 +147,11 @@ function count2(){
     document.getElementById("time3").innerHTML = time_data+"sec";
 }
 //1800000
+
+function ani(){
+    if(ani_branch == "ok"){
+        console.log("strat")
+}else{
+    console.log("stop");
+    }
+}
