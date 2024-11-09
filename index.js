@@ -30,7 +30,7 @@ fetch(url,{
    //バッテリー使用状況
    battery_status = resJson[3];
     try{
-        var message = resJson[3];
+        var message = resJson[4];
         if(message == undefined){
             message = "メッセージはありません";
         }
