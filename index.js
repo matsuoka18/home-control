@@ -76,7 +76,7 @@ fetch(url,{
 
 }
 function battery_status_check(){
-    document.getElementById("bs").innerHTML = "Battery_Status      :      "+battery_status;
+    document.getElementById("bs").innerHTML = "Battery_Status:"+battery_status;
 }
 function battery_check(){
     battery_data = battery_data*100+"vw";
