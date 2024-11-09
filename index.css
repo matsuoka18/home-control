@@ -129,3 +129,11 @@ p{
     letter-spacing: 1vw;
     color:white;
 }
+.bs{
+    position:absolute;
+    top:2.5vh;
+    left:15vw;
+    margin:0;
+    padding: 0;
+    font-size:20px;
+}

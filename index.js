@@ -1,14 +1,12 @@
 url = "https://script.google.com/macros/s/AKfycbxJ7duZLgYz0kI2pq2Xu6iIGNPFHV9e_pSqd1fanrHJaa83pKeowQh9BxpZ9mQ7CI4/exec";
-url2 = "https://matsuoka18.github.io/home-control/index.html";
 mode = "";
 battery_data = "";
-ani_branch = "OK";
+battery_status = "";
 function data_road(){
     document.getElementById("all1").style.opacity = 1;
     document.getElementById("all1").style.display = "block";
     document.getElementById("all2").style.opacity = 0;
     document.getElementById("all2").style.display = "none";
-    ani();
 fetch(url,{
     "method":"get",
     "mode":"cors"
@@ -20,7 +18,6 @@ fetch(url,{
 })
 .then(resJson =>{
     //画面切り替え
-    ani_branch="FIN";
     document.getElementById("all1").style.opacity = 0;
     document.getElementById("all1").style.display = "none";
     document.getElementById("all2").style.opacity = 1;
@@ -30,7 +27,8 @@ fetch(url,{
     mode = resJson[1];
     //バッテリー残量表示処理　
     battery_data = resJson[2];
-
+   //バッテリー使用状況
+   battery_status = resJson[3];
     try{
         var message = resJson[3];
         if(message == undefined){
@@ -45,6 +43,7 @@ fetch(url,{
     console.log("status:"+status);
     console.log("mode:"+mode);
     console.log("battery:"+battery);
+    console.log("battery_status:"+battery_status);
     
     //onの場合
     if(status == "on"){
@@ -71,9 +70,13 @@ fetch(url,{
  document.getElementById("time2").innerHTML = time;
  check();
  battery_check();
+ battery_status_check();
  tatch_animation();
 })
 
+}
+function battery_status_check(){
+    document.getElementById("bs").innerHTML = "Battery_Status      :      "+battery_status;
 }
 function battery_check(){
     battery_data = battery_data*100+"vw";
@@ -104,7 +107,7 @@ function check(){
         control = setInterval(()=>{
             console.log("check2")
             clearInterval(branch_t);
-            location.href = url2
+            location.href = "https://matsuoka18.github.io/home-control/index.html"
         },600000)
         time_data = 600000;
       //600000
@@ -113,7 +116,7 @@ function check(){
       control = setInterval(()=>{
         console.log("check2")
         clearInterval(branch_t);
-        location.href = url2
+        location.href = "https://matsuoka18.github.io/home-control/index.html"
     },1800000)
     time_data = 1800000;
     }else{
@@ -121,7 +124,7 @@ function check(){
       control = setInterval(()=>{
         console.log("check2")
         clearInterval(branch_t);
-        location.href = url2
+        location.href = "https://matsuoka18.github.io/home-control/index.html"
     },3600000)
     time_data = 3600000;
     }
@@ -147,11 +150,3 @@ function count2(){
     document.getElementById("time3").innerHTML = time_data+"sec";
 }
 //1800000
-
-function ani(){
-    if(ani_branch == "ok"){
-        console.log("strat")
-}else{
-    console.log("stop");
-    }
-}
