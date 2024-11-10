@@ -42,7 +42,7 @@ fetch(url,{
     document.getElementById("text").innerHTML = message;
     console.log("status:"+status);
     console.log("mode:"+mode);
-    console.log("battery:"+battery);
+    console.log("battery:"+battery_data);
     console.log("battery_status:"+battery_status);
     
     //onの場合
@@ -83,7 +83,7 @@ function battery_check(){
     $("#battery").animate({
         "width":battery_data
     },1000)
-    //document.getElementById("battery").style.width = battery;
+    //document.getElementById("battery").style.width = battery_data;
     
 }
 battery_interval = '';
