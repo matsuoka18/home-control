@@ -34,12 +34,12 @@
 
                 }
             var l = b.length;
-            e+=100;
+            e+=400;
             var qr_data = b.substring(s,e);
 
-            s+=101;
+            s+=401;
             new QRCode(document.getElementById("qrcode"), qr_data);
-            },2000)
+            },1000)
 
             
       }
@@ -114,6 +114,9 @@ const canvasUpdate = () => {
 }
 const rectCvs = document.getElementById('rect-canvas');
 const rectCtx =  rectCvs.getContext('2d');
+
+var pre_qr = "";
+var whole_data = "";
 const checkImage = () => {
    // imageDataを作る
    const imageData = ctx.getImageData(0, 0, contentWidth, contentHeight);
@@ -124,9 +127,13 @@ const checkImage = () => {
    if (code) {
       console.log("QRcodeが見つかりました", code); //code.dataで内容は取得可能
       drawRect(code.location);
-      if(code.data == "まつおかずや"){
-        find(code.data);
-      }
+     if(pre_qr == code){
+        console.log("scan済み");
+     }else{
+        pre_qr = code;
+        whole_data+=code;
+        console.log(whole_data);
+     }
    } else {
       console.log("QRcodeが見つかりません…", code);
       rectCtx.clearRect(0, 0, contentWidth, contentHeight);
